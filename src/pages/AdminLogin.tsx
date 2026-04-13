@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { authStore } from "@/lib/store";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -10,21 +10,26 @@ import { Lock } from "lucide-react";
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  if (authStore.isLoggedIn()) {
-    navigate("/admin/dashboard");
-    return null;
-  }
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data }) => {
+      if (data.session) navigate("/admin/dashboard");
+    });
+  }, [navigate]);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (authStore.login(email, password)) {
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setLoading(false);
+    if (error) {
+      toast({ title: "Invalid credentials", description: error.message, variant: "destructive" });
+    } else {
       toast({ title: "Welcome back, Admin!" });
       navigate("/admin/dashboard");
-    } else {
-      toast({ title: "Invalid credentials", variant: "destructive" });
     }
   };
 
@@ -43,9 +48,10 @@ export default function AdminLogin() {
           <form onSubmit={handleLogin} className="space-y-4">
             <Input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <Input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <Button type="submit" className="w-full" size="lg">Sign In</Button>
+            <Button type="submit" className="w-full" size="lg" disabled={loading}>
+              {loading ? "Signing in..." : "Sign In"}
+            </Button>
           </form>
-          <p className="text-xs text-muted-foreground text-center mt-4">Demo: admin@fulrani.com / fulrani2024</p>
         </div>
       </main>
     </>
