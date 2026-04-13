@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/fulrani-logo.png";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -20,7 +21,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 glass-surface border-b">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-2xl font-display font-bold text-primary">Fulrani</span>
+          <img src={logo} alt="Fulrani Logo" className="h-10 w-auto" />
           <span className="hidden sm:block text-xs text-muted-foreground leading-tight">Advertising<br/>& Marketing</span>
         </Link>
 
