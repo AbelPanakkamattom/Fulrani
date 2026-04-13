@@ -140,7 +140,7 @@ function VideoManager() {
                 <TableCell>{new Date(i.date).toLocaleDateString()}</TableCell>
                 <TableCell className="text-right space-x-2">
                   <Button size="icon" variant="ghost" onClick={() => handleEdit(i)}><Pencil className="h-4 w-4" /></Button>
-                  <Button size="icon" variant="ghost" onClick={() => videoStore.delete(i.id) || refresh()}><Trash2 className="h-4 w-4 text-destructive" /></Button>
+                  <Button size="icon" variant="ghost" <Button size="icon" variant="ghost" onClick={() => { videoStore.delete(i.id); refresh(); }}><Trash2 className="h-4 w-4 text-destructive" /></Button>><Trash2 className="h-4 w-4 text-destructive" /></Button>
                 </TableCell>
               </TableRow>
             ))}
