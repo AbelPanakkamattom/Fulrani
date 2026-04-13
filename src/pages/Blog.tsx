@@ -1,17 +1,20 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { blogStore, videoStore, type BlogPost, type VideoPost } from "@/lib/store";
+import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { Calendar } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
+type Blog = { id: string; title: string; excerpt: string | null; content: string | null; image_url: string | null; author: string | null; created_at: string };
+type Video = { id: string; title: string; video_url: string; thumbnail_url: string | null; description: string | null; created_at: string };
+
 export default function Blog() {
-  const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const [videos, setVideos] = useState<VideoPost[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
 
   useEffect(() => {
-    setBlogs(blogStore.getAll());
-    setVideos(videoStore.getAll());
+    supabase.from("blogs").select("*").order("created_at", { ascending: false }).then(({ data }) => setBlogs(data || []));
+    supabase.from("videos").select("*").order("created_at", { ascending: false }).then(({ data }) => setVideos(data || []));
   }, []);
 
   return (
@@ -40,11 +43,11 @@ export default function Blog() {
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {blogs.map((b) => (
                       <article key={b.id} className="bg-card rounded-xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow">
-                        {b.image && <img src={b.image} alt={b.title} className="w-full h-48 object-cover" />}
+                        {b.image_url && <img src={b.image_url} alt={b.title} className="w-full h-48 object-cover" />}
                         <div className="p-5">
                           <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                             <Calendar className="h-3 w-3" />
-                            {new Date(b.date).toLocaleDateString()}
+                            {new Date(b.created_at).toLocaleDateString()}
                           </div>
                           <h3 className="font-semibold text-lg mb-2 line-clamp-2">{b.title}</h3>
                           <p className="text-sm text-muted-foreground line-clamp-3">{b.excerpt}</p>
@@ -63,12 +66,7 @@ export default function Blog() {
                     {videos.map((v) => (
                       <div key={v.id} className="bg-card rounded-xl overflow-hidden shadow-card">
                         <div className="aspect-video">
-                          <iframe
-                            src={v.url.replace("watch?v=", "embed/")}
-                            title={v.title}
-                            className="w-full h-full"
-                            allowFullScreen
-                          />
+                          <video src={v.video_url} controls className="w-full h-full object-cover" poster={v.thumbnail_url || undefined} />
                         </div>
                         <div className="p-4">
                           <h3 className="font-semibold mb-1">{v.title}</h3>

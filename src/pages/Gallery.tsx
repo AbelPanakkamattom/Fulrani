@@ -1,16 +1,18 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { imageStore, type ImagePost } from "@/lib/store";
+import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
+type ImageItem = { id: string; title: string; image_url: string; caption: string | null; category: string | null; created_at: string };
+
 export default function Gallery() {
-  const [images, setImages] = useState<ImagePost[]>([]);
-  const [selected, setSelected] = useState<ImagePost | null>(null);
+  const [images, setImages] = useState<ImageItem[]>([]);
+  const [selected, setSelected] = useState<ImageItem | null>(null);
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
-    setImages(imageStore.getAll());
+    supabase.from("images").select("*").order("created_at", { ascending: false }).then(({ data }) => setImages(data || []));
   }, []);
 
   const categories = ["All", ...Array.from(new Set(images.map((i) => i.category).filter(Boolean)))];
@@ -47,7 +49,7 @@ export default function Gallery() {
                 <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                   {filtered.map((img) => (
                     <div key={img.id} className="break-inside-avoid cursor-pointer group" onClick={() => setSelected(img)}>
-                      <img src={img.url} alt={img.caption || img.title} className="rounded-lg w-full shadow-card group-hover:shadow-elevated transition-shadow" />
+                      <img src={img.image_url} alt={img.caption || img.title} className="rounded-lg w-full shadow-card group-hover:shadow-elevated transition-shadow" />
                       {img.caption && <p className="text-xs text-muted-foreground mt-1">{img.caption}</p>}
                     </div>
                   ))}
@@ -59,7 +61,7 @@ export default function Gallery() {
 
         <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
           <DialogContent className="max-w-3xl p-2">
-            {selected && <img src={selected.url} alt={selected.caption || selected.title} className="w-full rounded-lg" />}
+            {selected && <img src={selected.image_url} alt={selected.caption || selected.title} className="w-full rounded-lg" />}
           </DialogContent>
         </Dialog>
       </main>
