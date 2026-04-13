@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/fulrani-logo.png";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { label: "Home", path: "/" },
