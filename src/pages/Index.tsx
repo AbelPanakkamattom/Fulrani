@@ -29,7 +29,12 @@ const offices = [
 export default function Index() {
   return (
     <>
-      <SEO title="Fulrani Advertising & Marketing | 28+ Years of Excellence in India" description="INS accredited advertising agency serving 500+ clients since 1997. Print media, digital marketing, outdoor advertising & government tenders across India." path="/" />
+      <SEO
+        title="Fulrani Advertising Agency | Best Advertisement Company in India | Digital Marketing"
+        description="Fulrani — India's top advertisement agency & digital marketing company since 1997. INS accredited ads agency offering print advertising, outdoor ads, digital marketing. 500+ clients in Mumbai, Pune, Delhi."
+        keywords="Fulrani, Fulrani advertising, advertisement, advertisement company, advertising agency, ads agency, Fulrani advertisement agency, digital marketing company, best advertisement company India, advertising company Mumbai, ad agency near me"
+        path="/"
+      />
       <Navbar />
       <main>
         {/* Hero */}
