@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -20,6 +21,7 @@ export default function Gallery() {
 
   return (
     <>
+      <SEO title="Gallery" description="Browse Fulrani Advertising's portfolio — campaign images, creative designs, and marketing collateral." path="/gallery" />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

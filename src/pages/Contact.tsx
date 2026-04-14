@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -23,6 +24,7 @@ export default function Contact() {
 
   return (
     <>
+      <SEO title="Contact Us" description="Get in touch with Fulrani Advertising & Marketing. Offices in Mumbai, Pune & Delhi. Call +91 9773016354 or email info@fulrani.com." path="/contact" />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

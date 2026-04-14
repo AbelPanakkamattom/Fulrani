@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CounterStat from "@/components/CounterStat";
+import SEO from "@/components/SEO";
 import aboutTeam from "@/assets/about-team.jpg";
 import { Award, Users, Globe, Briefcase } from "lucide-react";
 
@@ -14,6 +15,7 @@ const values = [
 export default function About() {
   return (
     <>
+      <SEO title="About Us" description="Learn about Fulrani Advertising & Marketing — 28+ years of trusted excellence, INS accredited, serving 500+ clients across India." path="/about" />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

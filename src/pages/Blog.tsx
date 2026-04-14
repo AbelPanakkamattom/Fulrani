@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { useState, useEffect } from "react";
 import { Calendar } from "lucide-react";
@@ -19,6 +20,7 @@ export default function Blog() {
 
   return (
     <>
+      <SEO title="Blog & Media" description="Stay updated with Fulrani's latest advertising insights, campaigns, videos, and industry news." path="/blog" />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

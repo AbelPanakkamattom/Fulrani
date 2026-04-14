@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Newspaper, Monitor, Megaphone, FileText, Palette, BarChart3, ArrowRight } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const services = [
   { icon: Newspaper, title: "Print Media Advertising", desc: "Newspaper ads, magazine placements, and classified advertising across all leading publications in India." },
@@ -16,6 +17,7 @@ const services = [
 export default function Services() {
   return (
     <>
+      <SEO title="Our Services" description="Comprehensive advertising & marketing services — print media, digital marketing, outdoor advertising, government tenders, creative design & media planning." path="/services" />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">
