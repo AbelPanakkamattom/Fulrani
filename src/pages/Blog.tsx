@@ -20,6 +20,7 @@ export default function Blog() {
 
   return (
     <>
+      <SEO title="Blog & Media" description="Stay updated with Fulrani's latest advertising insights, campaigns, videos, and industry news." path="/blog" />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">
