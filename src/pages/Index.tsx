@@ -43,14 +43,14 @@ export default function Index() {
             <div className="flex flex-col justify-center space-y-6">
               <p className="text-sm font-medium text-primary tracking-wide uppercase">Serving Since 1997 | INS Accredited</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-                28 Years of <span className="text-gradient">Excellence</span> in Advertising & Marketing
+                India's Trusted <span className="text-gradient">Advertisement Agency</span> & Digital Marketing Company
               </h1>
               <p className="text-muted-foreground text-lg max-w-md">
-                Trusted by 500+ clients across sectors, from Government to Real Estate.
+                Fulrani Advertising — INS accredited ads agency trusted by 500+ clients. Print media advertising, digital marketing, outdoor ads & government tender advertising across India.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link to="/services"><Button size="lg">Explore Services <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
-                <Link to="/contact"><Button size="lg" variant="outline">Contact Us</Button></Link>
+                <Link to="/services"><Button size="lg">Explore Our Ad Services <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
+                <Link to="/contact"><Button size="lg" variant="outline">Get Free Ad Consultation</Button></Link>
               </div>
             </div>
             <div className="relative hidden lg:block">
@@ -79,9 +79,9 @@ export default function Index() {
         {/* Why Choose Us */}
         <section className="py-20">
           <div className="container">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-4">Why Choose Us?</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-4">Why Choose Fulrani Advertisement Agency?</h2>
             <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-              At Fulrani Advertising & Marketing, we don't just create ads — we build trust, visibility, and impact.
+              At Fulrani Advertising & Marketing, we don't just create ads — we build trust, visibility, and impact as India's leading advertisement company and digital marketing agency.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {whyChooseUs.map((item) => (
@@ -98,7 +98,7 @@ export default function Index() {
         {/* Testimonials */}
         <section className="py-20 bg-accent/20">
           <div className="container">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12">What Our Clients Say</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12">What Clients Say About Fulrani Ads</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {testimonials.map((t) => (
                 <div key={t.name} className="bg-card rounded-xl p-6 shadow-card">
@@ -115,8 +115,8 @@ export default function Index() {
         {/* Pan India */}
         <section className="py-20">
           <div className="container">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-4">Pan India Presence</h2>
-            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">Strategic offices across major cities for comprehensive coverage.</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-4">Fulrani Advertising — Pan India Advertisement Agency</h2>
+            <p className="text-muted-foreground text-center max-w-xl mx-auto mb-12">Strategic offices in Mumbai, Pune & Delhi for comprehensive advertising coverage across India.</p>
             <div className="grid md:grid-cols-3 gap-6">
               {offices.map((o) => (
                 <div key={o.city} className="bg-card rounded-xl p-6 shadow-card text-center">
