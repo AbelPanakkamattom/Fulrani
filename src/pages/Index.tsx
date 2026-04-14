@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import CounterStat from "@/components/CounterStat";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import heroBanner from "@/assets/hero-banner.jpg";
 
 const whyChooseUs = [
@@ -28,6 +29,7 @@ const offices = [
 export default function Index() {
   return (
     <>
+      <SEO title="Fulrani Advertising & Marketing | 28+ Years of Excellence in India" description="INS accredited advertising agency serving 500+ clients since 1997. Print media, digital marketing, outdoor advertising & government tenders across India." path="/" />
       <Navbar />
       <main>
         {/* Hero */}
