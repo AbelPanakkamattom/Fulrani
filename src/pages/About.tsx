@@ -15,7 +15,12 @@ const values = [
 export default function About() {
   return (
     <>
-      <SEO title="About Us" description="Learn about Fulrani Advertising & Marketing — 28+ years of trusted excellence, INS accredited, serving 500+ clients across India." path="/about" />
+      <SEO
+        title="About Fulrani Advertisement Agency"
+        description="Fulrani Advertising & Marketing — 28+ years as India's trusted advertisement agency. INS accredited digital marketing company with 500+ clients across Mumbai, Pune, Delhi."
+        keywords="about Fulrani, Fulrani advertising company, advertisement agency history, Fulrani digital marketing, INS accredited ad agency India"
+        path="/about"
+      />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

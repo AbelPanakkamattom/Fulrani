@@ -17,7 +17,12 @@ const services = [
 export default function Services() {
   return (
     <>
-      <SEO title="Our Services" description="Comprehensive advertising & marketing services — print media, digital marketing, outdoor advertising, government tenders, creative design & media planning." path="/services" />
+      <SEO
+        title="Advertisement & Digital Marketing Services"
+        description="Fulrani advertising services — print media ads, digital marketing, outdoor advertising, government tender ads, creative design & media planning. Best advertisement company for all ad needs."
+        keywords="advertisement services, advertising services India, digital marketing services, print ads, outdoor advertising, government tender advertising, Fulrani services, ads company services, media planning"
+        path="/services"
+      />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

@@ -24,7 +24,12 @@ export default function Contact() {
 
   return (
     <>
-      <SEO title="Contact Us" description="Get in touch with Fulrani Advertising & Marketing. Offices in Mumbai, Pune & Delhi. Call +91 9773016354 or email info@fulrani.com." path="/contact" />
+      <SEO
+        title="Contact Fulrani Advertisement Agency"
+        description="Contact Fulrani Advertising — India's top advertisement agency. Offices in Mumbai, Pune & Delhi. Call +91 9773016354 for ads, digital marketing, print media advertising enquiries."
+        keywords="contact Fulrani, advertisement agency contact, advertising company Mumbai contact, Fulrani phone number, ads agency near me, digital marketing company contact"
+        path="/contact"
+      />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">
