@@ -5,7 +5,7 @@ import CounterStat from "@/components/CounterStat";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import heroBanner from "@/assets/hero-banner.jpg";
+
 
 const whyChooseUs = [
   { icon: Award, title: "INS Accreditation", desc: "Officially recognized for authenticity, professionalism, and reliability in media and advertising services." },
@@ -34,22 +34,19 @@ export default function Index() {
       <main>
         {/* Hero */}
         <section className="relative overflow-hidden bg-accent/30 min-h-[80vh] flex items-center">
-          <div className="container grid lg:grid-cols-2 gap-10 py-16">
-            <div className="flex flex-col justify-center space-y-6">
+          <div className="container py-16">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
               <p className="text-sm font-medium text-primary tracking-wide uppercase">Serving Since 1997 | INS Accredited</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
                 India's Trusted <span className="text-gradient">Advertisement Agency</span> & Digital Marketing Company
               </h1>
-              <p className="text-muted-foreground text-lg max-w-md">
+              <p className="text-muted-foreground text-lg max-w-md mx-auto">
                 Fulrani Advertising — INS accredited ads agency trusted by 500+ clients. Print media advertising, digital marketing, outdoor ads & government tender advertising across India.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/services"><Button size="lg">Explore Our Ad Services <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
                 <Link to="/contact"><Button size="lg" variant="outline">Get Free Ad Consultation</Button></Link>
               </div>
-            </div>
-            <div className="relative hidden lg:block">
-              <img src={heroBanner} alt="Fulrani Advertising team collaborating on marketing strategies" className="rounded-2xl shadow-elevated object-cover w-full h-[480px]" />
             </div>
           </div>
         </section>
