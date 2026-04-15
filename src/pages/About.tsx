@@ -54,6 +54,40 @@ export default function About() {
           </div>
         </section>
 
+        {/* Our Team */}
+        <section className="py-20 bg-accent/20">
+          <div className="container">
+            <h2 className="text-3xl font-display font-bold text-center mb-2">Our Team</h2>
+            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+              Meet the experienced professionals who drive Fulrani's success and innovation in the advertising industry.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {[
+                { name: "Mrs. Vidya Deepak Shedge", role: "Proprietor & Founder", location: "Mumbai" },
+                { name: "Deepak Shedge", role: "CEO and Creative Head", location: "Mumbai" },
+                { name: "Santosh Balan", role: "Consultant Marketing and PR", location: "Mumbai" },
+                { name: "Murli", role: "Chief Marketing & Creative Consultant", location: "Mumbai" },
+                { name: "Vijay Pawar", role: "Associate Creative Director", location: "Mumbai" },
+                { name: "Sanvedana Deepak Shedge", role: "Chief Manager", location: "Mumbai" },
+                { name: "Vishwanath Bhau Dongre", role: "Sr. Media Manager", location: "Mumbai" },
+                { name: "Sagar Shedge", role: "Business Development Manager", location: "Mumbai" },
+                { name: "Rajesh Shrivastav", role: "Client Servicing Head", location: "Mumbai" },
+                { name: "Charudutta Shedge", role: "Client Servicing Head", location: "Mumbai" },
+                { name: "Kritirani Paitha", role: "Media Co-ordinator", location: "Mumbai" },
+              ].map((member) => (
+                <div key={member.name} className="bg-card rounded-xl p-4 md:p-6 shadow-card text-center">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-accent mx-auto mb-3 flex items-center justify-center overflow-hidden">
+                    <UserCircle className="h-16 w-16 md:h-20 md:w-20 text-muted-foreground/40" />
+                  </div>
+                  <h3 className="font-semibold text-sm md:text-base leading-tight">{member.name}</h3>
+                  <p className="text-xs md:text-sm text-primary mt-1">{member.role}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{member.location}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="py-20">
           <div className="container">
             <h2 className="text-3xl font-display font-bold text-center mb-12">Our Values</h2>
