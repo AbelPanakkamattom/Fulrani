@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, MapPin, Target, Building2, Star } from "lucide-react";
+import { ArrowRight, Award, MapPin, Target, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CounterStat from "@/components/CounterStat";
 import Navbar from "@/components/Navbar";
@@ -90,20 +90,12 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* CTA */}
         <section className="py-20 bg-accent/20">
-          <div className="container">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-12">What Clients Say About Fulrani Ads</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {testimonials.map((t) => (
-                <div key={t.name} className="bg-card rounded-xl p-6 shadow-card">
-                  <div className="flex gap-1 text-primary mb-3">{[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-primary" />)}</div>
-                  <p className="text-sm text-muted-foreground italic mb-4">"{t.text}"</p>
-                  <p className="font-semibold text-sm">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">Client</p>
-                </div>
-              ))}
-            </div>
+          <div className="container text-center">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Ready to Grow Your Brand?</h2>
+            <p className="text-muted-foreground max-w-xl mx-auto mb-8">Partner with Fulrani — India's trusted advertisement agency — and let us craft campaigns that deliver real results.</p>
+            <Link to="/contact"><Button size="lg">Get Free Consultation <ArrowRight className="ml-1 h-4 w-4" /></Button></Link>
           </div>
         </section>
 
