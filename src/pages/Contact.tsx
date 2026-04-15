@@ -7,19 +7,33 @@ import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function Contact() {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       toast({ title: "Please fill all required fields", variant: "destructive" });
       return;
     }
-    toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setSending(true);
+    const { error } = await supabase.from("contact_messages").insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim() || null,
+      message: form.message.trim(),
+    });
+    setSending(false);
+    if (error) {
+      toast({ title: "Failed to send message", variant: "destructive" });
+    } else {
+      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
+      setForm({ name: "", email: "", phone: "", message: "" });
+    }
   };
 
   return (
@@ -48,7 +62,7 @@ export default function Contact() {
                 <Input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} />
                 <Input placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} />
                 <Textarea placeholder="Your Message *" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} maxLength={1000} />
-                <Button type="submit" size="lg" className="w-full">Send Message</Button>
+                <Button type="submit" size="lg" className="w-full" disabled={sending}>{sending ? "Sending..." : "Send Message"}</Button>
               </form>
             </div>
 
