@@ -14,11 +14,6 @@ const whyChooseUs = [
   { icon: Target, title: "Impactful Communication", desc: "Every campaign is built to inform, inspire, and influence — creating messages that leave a lasting impression." },
 ];
 
-const testimonials = [
-  { name: "RRP Electronics Ltd", text: "Fulrani has been instrumental in our brand's success. Their strategic approach and creative solutions have helped us reach new heights." },
-  { name: "RRPS4E", text: "Working with Fulrani has been a game-changer for our defence sector campaigns. Their expertise is exceptional." },
-  { name: "Saraswat Bank", text: "Fulrani's innovative marketing strategies have significantly boosted our banking sector presence." },
-];
 
 const offices = [
   { city: "Mumbai", address: "D-33, Penta Galaxy, S.M Road, Wadala East, Mumbai - 400037", phone: "+91 9773016354" },
