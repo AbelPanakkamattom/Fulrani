@@ -4,11 +4,12 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { LogOut, FileText, Video, Image } from "lucide-react";
+import { LogOut, FileText, Video, Image, MessageSquare } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import BlogManager from "@/components/admin/BlogManager";
 import VideoManager from "@/components/admin/VideoManager";
 import ImageManager from "@/components/admin/ImageManager";
+import ContactMessagesManager from "@/components/admin/ContactMessagesManager";
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -46,12 +47,14 @@ export default function AdminDashboard() {
             <Button variant="outline" onClick={handleLogout}><LogOut className="h-4 w-4 mr-2" /> Logout</Button>
           </div>
 
-          <Tabs defaultValue="blogs">
+          <Tabs defaultValue="messages">
             <TabsList className="mb-6">
+              <TabsTrigger value="messages" className="gap-2"><MessageSquare className="h-4 w-4" /> Messages</TabsTrigger>
               <TabsTrigger value="blogs" className="gap-2"><FileText className="h-4 w-4" /> Blogs</TabsTrigger>
               <TabsTrigger value="videos" className="gap-2"><Video className="h-4 w-4" /> Videos</TabsTrigger>
               <TabsTrigger value="images" className="gap-2"><Image className="h-4 w-4" /> Images</TabsTrigger>
             </TabsList>
+            <TabsContent value="messages"><ContactMessagesManager /></TabsContent>
             <TabsContent value="blogs"><BlogManager /></TabsContent>
             <TabsContent value="videos"><VideoManager /></TabsContent>
             <TabsContent value="images"><ImageManager /></TabsContent>

@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import CounterStat from "@/components/CounterStat";
 import SEO from "@/components/SEO";
 import aboutTeam from "@/assets/about-team.jpg";
-import { Award, Users, Globe, Briefcase } from "lucide-react";
+import { Award, Users, Globe, Briefcase, UserCircle } from "lucide-react";
 
 const values = [
   { icon: Award, title: "Integrity", desc: "We maintain the highest standards of professionalism and transparency." },
