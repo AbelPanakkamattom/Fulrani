@@ -21,7 +21,12 @@ export default function Gallery() {
 
   return (
     <>
-      <SEO title="Gallery" description="Browse Fulrani Advertising's portfolio — campaign images, creative designs, and marketing collateral." path="/gallery" />
+      <SEO
+        title="Gallery - Fulrani Advertising Portfolio & Creative Works"
+        description="Explore Fulrani Advertising's portfolio of successful campaigns, creative designs, and marketing collateral. Showcasing our best work across print, digital, and outdoor advertising."
+        keywords="portfolio, advertising portfolio, creative design portfolio, campaign examples, ad gallery, marketing showcase, Fulrani portfolio, advertising work"
+        path="/gallery"
+      />
       <Navbar />
       <main>
         <section className="py-20 bg-accent/20">

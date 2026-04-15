@@ -25,9 +25,9 @@ export default function Index() {
   return (
     <>
       <SEO
-        title="Fulrani Advertising Agency | Best Advertisement Company in India | Digital Marketing"
-        description="Fulrani — India's top advertisement agency & digital marketing company since 1997. INS accredited ads agency offering print advertising, outdoor ads, digital marketing. 500+ clients in Mumbai, Pune, Delhi."
-        keywords="Fulrani, Fulrani advertising, advertisement, advertisement company, advertising agency, ads agency, Fulrani advertisement agency, digital marketing company, best advertisement company India, advertising company Mumbai, ad agency near me"
+        title="Fulrani Advertising Agency | Best Advertisement & Digital Marketing Company in India"
+        description="Fulrani Advertising — India's leading INS accredited advertisement agency since 1997. Specializing in print media ads, digital marketing, outdoor advertising, and government tender advertising. Trusted by 500+ clients across Mumbai, Pune, Delhi."
+        keywords="Fulrani advertising, advertisement agency India, best ad company, digital marketing agency, print media advertising, outdoor advertising, Fulrani ads, advertising services, INS accredited agency"
         path="/"
       />
       <Navbar />

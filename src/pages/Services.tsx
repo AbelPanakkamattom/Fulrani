@@ -18,9 +18,9 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Advertisement & Digital Marketing Services"
-        description="Fulrani advertising services — print media ads, digital marketing, outdoor advertising, government tender ads, creative design & media planning. Best advertisement company for all ad needs."
-        keywords="advertisement services, advertising services India, digital marketing services, print ads, outdoor advertising, government tender advertising, Fulrani services, ads company services, media planning"
+        title="Advertising & Digital Marketing Services | Fulrani Ad Agency"
+        description="Comprehensive advertising solutions including print media, digital marketing, outdoor advertising, government tenders, creative design, and media planning. Trusted by 500+ clients for exceptional results."
+        keywords="advertising services, digital marketing, print media ads, outdoor advertising, government tender ads, creative design, media planning, Fulrani services, professional ad agency, branding services"
         path="/services"
       />
       <Navbar />

@@ -16,9 +16,9 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Fulrani Advertisement Agency"
-        description="Fulrani Advertising & Marketing — 28+ years as India's trusted advertisement agency. INS accredited digital marketing company with 500+ clients across Mumbai, Pune, Delhi."
-        keywords="about Fulrani, Fulrani advertising company, advertisement agency history, Fulrani digital marketing, INS accredited ad agency India"
+        title="About Fulrani Advertising - 28+ Years of Excellence in India"
+        description="Discover Fulrani Advertising's journey — 28 years of trusted excellence as an INS accredited advertisement agency. Our mission, values, and commitment to serving 500+ clients with integrity and innovation."
+        keywords="Fulrani history, about Fulrani, INS accredited agency, advertising company India, Fulrani teams, advertising agency excellence, professional advertising services"
         path="/about"
       />
       <Navbar />

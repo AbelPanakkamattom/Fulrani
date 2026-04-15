@@ -39,9 +39,9 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact Fulrani Advertisement Agency"
-        description="Contact Fulrani Advertising — India's top advertisement agency. Offices in Mumbai, Pune & Delhi. Call +91 9773016354 for ads, digital marketing, print media advertising enquiries."
-        keywords="contact Fulrani, advertisement agency contact, advertising company Mumbai contact, Fulrani phone number, ads agency near me, digital marketing company contact"
+        title="Contact Fulrani Advertising Agency - Get Free Consultation"
+        description="Contact Fulrani Advertising Agency for professional advertising solutions. Offices in Mumbai, Pune, Delhi. Reach out for a free consultation on your ad campaigns."
+        keywords="contact Fulrani, advertising agency contact, free ad consultation, Fulrani Mumbai, Fulrani Pune, Fulrani Delhi, get in touch, advertising services inquiry"
         path="/contact"
       />
       <Navbar />
