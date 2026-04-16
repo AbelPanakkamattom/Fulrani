@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/ad-verse-manager-8330cef6/",   // 🔥 ADD THIS LINE
+  base: "/Fulrani/",   // 🔥 ADD THIS LINE
 
   server: {
     host: "::",

@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CounterStat from "@/components/CounterStat";
 import SEO from "@/components/SEO";
-import aboutTeam from "@/assets/about-team.jpg";
 import { Award, Users, Globe, Briefcase, UserCircle } from "lucide-react";
 
 const values = [
@@ -32,7 +31,7 @@ export default function About() {
 
         <section className="py-20">
           <div className="container grid lg:grid-cols-2 gap-12 items-center">
-            <img src={aboutTeam} alt="Fulrani advertising team at work" className="rounded-2xl shadow-elevated object-cover w-full h-[400px]" />
+            <img src="/about-team.jpg" alt="Fulrani advertising team at work" />
             <div className="space-y-5">
               <h2 className="text-3xl font-display font-bold">Our Story</h2>
               <p className="text-muted-foreground leading-relaxed">
