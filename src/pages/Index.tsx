@@ -17,8 +17,8 @@ const whyChooseUs = [
 
 const offices = [
   { city: "Mumbai", address: "D-33, Penta Galaxy, S.M Road, Wadala East, Mumbai - 400037", phone: "+91 9773016354" },
-  { city: "Pune", address: "456 Tech Park, Hinjewadi, Pune - 411057", phone: "+91 20 9876 5432" },
-  { city: "Delhi", address: "789 Corporate Tower, Connaught Place, Delhi - 110001", phone: "+91 11 2345 6789" },
+  { city: "Pune", address: "456 Tech Park, Hinjewadi, Pune - 411057", phone: "+91 9969352797" },
+  { city: "Delhi", address: "789 Corporate Tower, Connaught Place, Delhi - 110001", phone: "+91 9969352797" },
 ];
 
 export default function Index() {
