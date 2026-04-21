@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
@@ -22,19 +22,17 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<h1 style={{color:"red"}}>WORKING</h1>} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<AdminLogin />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </HashRouter>
+       <Routes>
+  <Route path="/" element={<Index />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/services" element={<Services />} />
+  <Route path="/blog" element={<Blog />} />
+  <Route path="/gallery" element={<Gallery />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/admin" element={<AdminLogin />} />
+  <Route path="/admin/dashboard" element={<AdminDashboard />} />
+  <Route path="*" element={<NotFound />} />
+</Routes>
       </TooltipProvider>
     </HelmetProvider>
   </QueryClientProvider>

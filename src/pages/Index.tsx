@@ -5,7 +5,6 @@ import CounterStat from "@/components/CounterStat";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
-import heroBanner from "@/assets/hero-banner.jpg";
 
 const whyChooseUs = [
   { icon: Award, title: "INS Accreditation", desc: "Officially recognized for authenticity, professionalism, and reliability in media and advertising services." },
@@ -49,7 +48,7 @@ export default function Index() {
               </div>
             </div>
             <div className="relative hidden lg:block">
-              <img src={heroBanner} alt="Fulrani Advertising team collaborating on marketing strategies" className="rounded-2xl shadow-elevated object-cover w-full h-[480px]" />
+              <img src="/Fulrani/hero-banner.jpg" alt="Fulrani Advertising team collaborating on marketing strategies" className="rounded-2xl shadow-elevated object-cover w-full h-[480px]" />
             </div>
           </div>
         </section>

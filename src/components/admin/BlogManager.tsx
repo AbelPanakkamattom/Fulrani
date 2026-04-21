@@ -49,8 +49,9 @@ export default function BlogManager() {
       setForm({ title: "", excerpt: "", content: "", author: "" });
       setImageFile(null);
       refresh();
-    } catch (err: any) {
-      toast({ title: "Error", description: err.message, variant: "destructive" });
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : String(err);
+      toast({ title: "Error", description: errorMessage, variant: "destructive" });
     }
     setLoading(false);
   };

@@ -16,7 +16,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.message.trim()) {
       toast({ title: "Please fill all required fields", variant: "destructive" });
       return;
     }
@@ -24,7 +24,7 @@ export default function Contact() {
     const { error } = await supabase.from("contact_messages").insert({
       name: form.name.trim(),
       email: form.email.trim(),
-      phone: form.phone.trim() || null,
+      phone: form.phone.trim(),
       message: form.message.trim(),
     });
     setSending(false);
@@ -60,7 +60,7 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <Input placeholder="Full Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} maxLength={100} />
                 <Input type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} maxLength={255} />
-                <Input placeholder="Phone Number" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} />
+                <Input placeholder="Phone Number *" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} maxLength={20} />
                 <Textarea placeholder="Your Message *" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} rows={5} maxLength={1000} />
                 <Button type="submit" size="lg" className="w-full" disabled={sending}>{sending ? "Sending..." : "Send Message"}</Button>
               </form>

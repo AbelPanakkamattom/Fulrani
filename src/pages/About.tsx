@@ -31,7 +31,7 @@ export default function About() {
 
         <section className="py-20">
           <div className="container grid lg:grid-cols-2 gap-12 items-center">
-            <img src="/about-team.jpg" alt="Fulrani advertising team at work" />
+            <img src= "/Fulrani/about-team.jpg" alt="Fulrani advertising team at work" />
             <div className="space-y-5">
               <h2 className="text-3xl font-display font-bold">Our Story</h2>
               <p className="text-muted-foreground leading-relaxed">
