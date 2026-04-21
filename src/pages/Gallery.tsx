@@ -13,20 +13,37 @@ type ImageItem = {
   category: string | null;
   created_at: string;
 };
+type Blog = {
+  id: string;
+  title: string;
+  content: string;
+  author: string;
+  image_url: string | null;
+  created_at: string;
+};
 
 export default function Gallery() {
   const [images, setImages] = useState<ImageItem[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
   const [selected, setSelected] = useState<ImageItem | null>(null);
   const [filter, setFilter] = useState("All");
   const [tab, setTab] = useState("images");
 
   useEffect(() => {
-    supabase
-      .from("images")
-      .select("*")
-      .order("created_at", { ascending: false })
-      .then(({ data }) => setImages(data || []));
-  }, []);
+  // Images
+  supabase
+    .from("images")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .then(({ data }) => setImages(data || []));
+
+  //  Blogs
+  supabase
+    .from("blogs")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .then(({ data }) => setBlogs(data || []));
+}, []);
 
   const categories = [
     "All",
@@ -128,30 +145,39 @@ export default function Gallery() {
 
         {/* ================= BLOGS ================= */}
         {tab === "blogs" && (
-          <section className="py-16">
-            <div className="container space-y-6">
-              <div className="p-6 border rounded-lg shadow">
-                <h2 className="text-xl font-bold">
-                  Why Digital Marketing is Important
-                </h2>
-                <p className="text-muted-foreground">
-                  Digital marketing helps businesses grow online, reach targeted
-                  audiences, and increase ROI.
-                </p>
-              </div>
+  <section className="py-16">
+    <div className="container grid md:grid-cols-2 gap-6">
 
-              <div className="p-6 border rounded-lg shadow">
-                <h2 className="text-xl font-bold">
-                  Outdoor Advertising Trends in India
-                </h2>
-                <p className="text-muted-foreground">
-                  Outdoor ads like hoardings and billboards still dominate brand
-                  visibility in India.
-                </p>
-              </div>
-            </div>
-          </section>
-        )}
+      {blogs.length === 0 ? (
+        <p>No blogs yet</p>
+      ) : (
+        blogs.map((blog) => (
+          <div key={blog.id} className="p-6 border rounded-lg shadow">
+
+            {blog.image_url && (
+              <img
+                src={blog.image_url}
+                className="w-full h-48 object-cover rounded mb-3"
+              />
+            )}
+
+            <h2 className="text-xl font-bold">{blog.title}</h2>
+
+            <p className="text-sm text-muted-foreground">
+              By {blog.author}
+            </p>
+
+            <p className="text-muted-foreground">
+              {blog.content.slice(0, 120)}...
+            </p>
+
+          </div>
+        ))
+      )}
+
+    </div>
+  </section>
+)}
 
         {/* ================= VIDEOS ================= */}
         {tab === "videos" && (

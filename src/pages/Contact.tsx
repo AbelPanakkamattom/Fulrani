@@ -8,33 +8,67 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.message.trim()) {
-      toast({ title: "Please fill all required fields", variant: "destructive" });
-      return;
-    }
-    setSending(true);
-    const { error } = await supabase.from("contact_messages").insert({
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.message.trim()) {
+    toast({ title: "Please fill all required fields", variant: "destructive" });
+    return;
+  }
+
+  if (!/^[0-9]{10}$/.test(form.phone)) {
+    toast({ title: "Enter valid 10-digit phone number", variant: "destructive" });
+    return;
+  }
+
+  setSending(true);
+
+  try {
+    // ✅ SEND EMAIL
+    await emailjs.send(
+  "service_6jwabgr",
+  "template_4f78mqm",
+      {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        message: form.message,
+      },
+      "tHbgFaGsiRbsDLVi_"
+    );
+
+    // ✅ SAVE TO DATABASE
+    await supabase.from("contact_messages").insert({
       name: form.name.trim(),
       email: form.email.trim(),
       phone: form.phone.trim(),
       message: form.message.trim(),
     });
-    setSending(false);
-    if (error) {
-      toast({ title: "Failed to send message", variant: "destructive" });
-    } else {
-      toast({ title: "Message sent!", description: "We'll get back to you within 24 hours." });
-      setForm({ name: "", email: "", phone: "", message: "" });
-    }
-  };
+
+    toast({
+      title: "Message sent!",
+      description: "We will contact you soon.",
+    });
+
+    setForm({ name: "", email: "", phone: "", message: "" });
+
+  } catch (error) {
+  console.log(error); // 👈 VERY IMPORTANT
+  toast({
+    title: "Failed to send message",
+    variant: "destructive",
+  });
+}
+
+  setSending(false);
+};
 
   return (
     <>
